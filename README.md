@@ -1,4 +1,4 @@
-# toyota-monterrey-website
+# Equality Company
 
-Repositorio de sitio web de Toyota Monterrey 2020.
-Desarrollado por ROLL
+Repositorio de sitio web de Equality Company.
+Desarrollado por ONE-ke
