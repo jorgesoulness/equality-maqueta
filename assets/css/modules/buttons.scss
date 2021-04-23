@@ -81,13 +81,13 @@
     color: $col2; border: none; background-color: transparent;
   }
   &.bLeftP {
-    left: 20px; @include transform(translateY(-50%));
+    left: 7px; @include transform(translateY(-50%));
     &:before {
       content: '\ea5a';
     }
   }
   &.nRightP {
-    right: 20px; @include transform(translateY(-50%));
+    right: 7px; @include transform(translateY(-50%));
     &:after {
       content: '\ea5c';
     }
