@@ -111,28 +111,38 @@ article {
 
 // Utilidades
 .bannerInt {
-  width: 100%; height: 300px; @include position(relative, null null null null); padding: 0 0; margin: 0 0 0 0;
-  img {
-    display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover";
+  width: 100%; height: 300px; @include position(relative, null null null null); padding: 0; margin: 0; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;
+  & hr {
+    border-top: 1.5px solid $white;
   }
-  .titleInt {
-    width: 100%; height: auto; padding: 0 0; margin: 0 0; @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); z-index: 1;
+  & .titleInt {
+    width: 100%; height: auto; padding: 0 0; margin: 0 0; @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); z-index: 2;
     h1, h2, h3, h4, h5, h6 {
-      margin: 0 0 10px 0; padding: 0; text-align: center; color: $white; text-transform: uppercase;
+      margin: 0 0 10px 0; padding: 0; text-align: left; color: $white; text-transform: uppercase; @include fluid-type(23px, 40px, 320px, 1200px);
     }
-    p {
-      text-align: center; margin: 0; padding: 0; color: $white; font-size: rem(13px);
-    }
-    .logoInt {
-      display: block; width: 100%; max-width: 250px; height: auto; margin: 0 auto 0 auto; padding: 0 0;
+    & .desc-hero-int {
+      width: 100%; height: auto; padding: 0; margin: 0 auto 20px 0; position: relative; @include box-sizing(border-box); color: $white; text-align: left; font-weight: 300; @include fluid-type(13px, 20px, 320px, 1200px); text-transform: uppercase;
+      & p {
+        color: $white; margin: 0; padding: 0; font-weight: 300;
+      }
     }
   }
-  .btnBannerInt {
-    width: 100%; height: auto; padding: 0; margin: 10px 0 0 0; position: relative; text-align: center;
-    a {
-      height: 40px; margin: 0 0 0 0; color: $white; line-height: 40px; font-size: rem(12px);
-      &:link, &:visited {
-        top:0; left:0; padding:0 45px; border-radius: 22px;
+  & .overlayHeroInt {
+    @extend .overlayClassAbs; z-index: 1; background-color: rgba($col1, 0.15);
+  }
+  @media all and (min-width: 768px) {
+    height: 350px;
+    & .titleInt {
+      & .desc-hero-int {
+        width: 70%;
+      }
+    }
+  }
+  @media all and (min-width: 1024px) {
+    height: 410px;
+    & .titleInt {
+      & .desc-hero-int {
+        width: 50%;
       }
     }
   }
@@ -325,4 +335,9 @@ article {
   @media all and (min-width: 1024px) {
     padding: 100px 0;
   }
+}
+
+// Contacto Page 
+.contContact {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 90px 0 50px; margin: 0; @include box-sizing(border-box); background-color: $white;
 }

@@ -227,3 +227,34 @@
     }
   }
 }
+
+.boxDescContact {
+  width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, column, flex-start, center, wrap);
+  &__items {
+    margin: 0 0 30px; padding: 0 0 30px; border-bottom: 1px solid $col7; @include box-sizing(border-box); width: 100%; height: auto;
+    &:last-child {
+      padding: 0; margin: 0; border-bottom: 0;
+    }
+  }
+}
+.boxContactInfo {
+  width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, row, flex-start, flex-start, wrap);
+  &__circle {
+    width: 40px; height: 40px; margin: 0 20px 0 0; padding: 0; background-color: $c12; border: 1px solid $col8; color: $col1; line-height: 40px; text-align: center; font-size: rem(22px); border-radius: 50%;
+  }
+  &__text {
+    padding: 10px 0 0; margin: 0; position: relative; @include box-sizing(border-box);
+    & h4 {
+      color: $col7; margin: 0 0 15px; padding: 0; text-transform: uppercase; @include fluid-type(13px, 16px, 320px, 1200px); font-weight: 500;
+    }
+    & p {
+      color: $col12; margin: 0; padding: 0; @include fluid-type(13px, 16px, 320px, 1200px); font-weight: 300;
+    }
+    & a {
+      color: $col5; text-decoration: none;
+      &:hover {
+        color: $col6;
+      }
+    }
+  }
+}
