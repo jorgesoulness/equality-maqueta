@@ -35,6 +35,7 @@ $gray-8: #cdcdcd;
 $gray-9: #282e47; 
 $gray-10: #f7f8fb;
 $gray-11: #cccccc;
+$gray-12: #f2f2f2;
 $col1: #712a81;
 $col2: #4f1b5b;
 $col3: #150519;
@@ -64,6 +65,7 @@ $c8: $gray-8;
 $c9: $gray-9;
 $c10: $gray-10;
 $c11: $gray-11;
+$c12: $gray-12;
 
 // Display Flex
 @mixin displayFlex($disp, $direc, $justify, $items, $wrp) {
