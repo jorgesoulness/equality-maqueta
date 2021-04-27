@@ -29,14 +29,18 @@
           outline: 0;
         }
         &:focus,
-        &:valid,
-        &.error-line {
+        &:valid {
           border-color: $col1; background-color: $col4;
         }
         &:focus ~ label,
-        &:valid ~ label,
-        &.error-line ~ label {
+        &:valid ~ label {
           font-size: rem(11px); top: -16px; color: $col1; padding: 0 0 0 8px;
+        }
+        &.error-line {
+          border-color: red; background-color: $col4;
+        }
+        &.error-line ~ label {
+          color: red;
         }
       }
     }
@@ -51,14 +55,18 @@
           outline: 0;
         }
         &:focus,
-        &:valid,
-        &.error-line {
+        &:valid {
           border-color: $col1; background-color: $col4;
         }
         &:focus ~ label,
-        &:valid ~ label,
-        &.error-line ~ label {
+        &:valid ~ label {
           font-size: rem(11px); top: 2px; color: $col1; padding: 0 0 0 8px;
+        }
+        &.error-line {
+          border-color: red; background-color: $col4;
+        }
+        &.error-line ~ label {
+          color: red;
         }
       }
     }
@@ -98,7 +106,7 @@
         content: ''; @include position(absolute, 50% null null 50%); width: 32px; height: 32px; margin: 0; padding: 0; background-image: url('#{$imgR}3.svg'); background-position: center; background-size: 100%; background-repeat: no-repeat; @include transform(translate(-50%, -50%));
       }
     }
-    div.error-line {
+    & div.error-line {
       width: 20px; height: 20px; line-height: 20px; background-color: red; color: $white; font-size: rem(8px); padding: 0; margin: 0; @include position(absolute, -6px 0 null null); z-index: 3; border-radius: 50%; text-align: center;
     }
   }
