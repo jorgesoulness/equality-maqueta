@@ -116,12 +116,13 @@ article {
     border-top: 1.5px solid $white;
   }
   & .titleInt {
-    width: 100%; height: auto; padding: 0 0; margin: 0 0; @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); z-index: 2;
+    width: 100%; height: auto; padding: 0 0; margin: 0 0; @include position(absolute, 50% null null 0); @include transform(translate(0, -50%));
+    opacity: 1; @include transition(opacity 1.5s ease 0.55s, transform 0.5s ease-out 0.45s, filter 0.5s ease 0.45s); z-index: 2;
     h1, h2, h3, h4, h5, h6 {
       margin: 0 0 10px 0; padding: 0; text-align: left; color: $white; text-transform: uppercase; @include fluid-type(23px, 40px, 320px, 1200px);
     }
     & .desc-hero-int {
-      width: 100%; height: auto; padding: 0; margin: 0 auto 20px 0; position: relative; @include box-sizing(border-box); color: $white; text-align: left; font-weight: 300; @include fluid-type(13px, 20px, 320px, 1200px); text-transform: uppercase;
+      width: 100%; height: auto; padding: 0; margin: 0 auto 20px 0; position: relative; @include box-sizing(border-box); color: $white; text-align: left; font-weight: 300; @include fluid-type(13px, 18px, 320px, 1200px);
       & p {
         color: $white; margin: 0; padding: 0; font-weight: 300;
       }
@@ -146,6 +147,11 @@ article {
       }
     }
   }
+  body.is-preload & {
+    > .titleInt {
+      @include transform(translate(-0.5em, -50%)); @include filter(blur(0.125em));
+		}
+	}
 }
 
 
@@ -349,7 +355,7 @@ article {
 .contGeneric {
   width: 100%; height: auto; @include position(relative, null null null null); padding: 50px 0 40px; margin: 0; @include box-sizing(border-box); background-color: $white;
   & .rte {
-    width: 100%; height: auto; padding: 0; margin: 50px 0 0; position: relative; @include box-sizing(border-box); color: $col12;
+    width: 100%; height: auto; padding: 0; margin: 20px 0 0; position: relative; @include box-sizing(border-box); color: $col12;
     & h1, & h2, & h3, & h4, & h5, & h6 {
       color: $col7;
     }
@@ -376,6 +382,161 @@ article {
     a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   }
   @media all and (min-width: 768px) {
+    padding: 70px 0;
+    & .rte {
+      margin: 40px 0 0;
+    }
+  }
+  @media all and (min-width: 992px) {
     padding: 80px 0;
+    & .rte {
+      margin: 50px 0 0;
+    }
+  }
+}
+
+//Single page section
+.contSingelPage {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 25px 0; margin: 0; @include box-sizing(border-box); background-color: $col1;
+  & .rte {
+    width: 100%; height: auto; padding: 20px 0 20px; margin: 0; position: relative; @include box-sizing(border-box); color: $white;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      color: $white;
+    }
+    & p {
+      font-weight: 300;
+      & a {
+        font-weight: 500;
+      }
+    }
+    & ul, & ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px; font-weight: 300;
+        &:before {
+          content: ''; @include position(absolute, 8px null null -15px); width: 6px; height: 6px; background-color: $white; border-radius: 50%;
+        }
+      }
+    }
+    & strong, & b {
+      font-weight: 700;
+    }
+  }
+  & .btnRte {
+    width: 100%; height: auto; padding: 0; margin: 15px 0 10px; position: relative; @include box-sizing(border-box); text-align: center;
+    & a {
+      margin: 0;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 40px 0;
+    & .rte {
+      padding: 30px 10px 20px;
+    }
+  }
+}
+.imageSingle {
+  width: 250px; height: 250px; padding: 0; margin: 0 auto 30px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.30); border-radius: 50%;
+  & > img {
+    @include position(absolute, 50% null null 50%); @include transform(translate(-50%, -50%)); display: block; width: 100%; max-width: 155px; height: auto; padding: 0; margin: 0;
+  }
+  @media all and (min-width: 576px) {
+    width: 290px; height: 290px;
+    & > img {
+      max-width: 175px;
+    }
+  }
+  @media all and (min-width: 768px) {
+    margin: 0 auto;
+  }
+  @media all and (min-width: 992px) {
+    width: 320px; height: 320px;
+    & > img {
+      max-width: 190px;
+    }
+  }
+  @media all and (min-width: 1200px) {
+    width: 360px; height: 360px;
+    & > img {
+      max-width: 220px;
+    }
+  }
+}
+.listSingle {
+  border-bottom: 1px solid rgba($col4, 0.85);
+  & .nav-item {
+    width: 50%;
+    & .nav-link {
+      @include transition(color 300ms ease);border: none!important; border-radius: 0!important; text-align: center; font-weight: 500; color: $col4; background-color: transparent; position: relative;
+      &:after {
+        @include position(absolute, null null 0 0); @include transition(height 0.45s ease-in-out 0.20s); content: ''; width: 100%; height: 0; background-color: $white;
+      }
+      &:hover,
+      &.active {
+        color: $white;
+        &:after {
+          height: 4px;
+        }
+      }
+    }
+  }
+}
+
+// Quienes Somos Page Section
+.contAboutUs {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 25px 0; margin: 0; @include box-sizing(border-box); background-color: $white; background-image: url('#{$imgR}imgprueba/equality_bg_iso.svg'); background-position: -40px calc(100% + 50px); background-repeat: no-repeat; overflow: hidden; background-size: 700px;
+  & hr {
+    margin-top: 40px; margin-bottom: 40px;
+  }
+  & .descAboutBox {
+    width: 100%; height: auto; padding: 0 0 20px; margin: 0; position: relative; @include box-sizing(border-box); color: $col12;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      color: $col12;
+    }
+    & p {
+      font-weight: 300; color: $col12;
+      & a {
+        font-weight: 500;
+      }
+    }
+    & ul, & ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px; font-weight: 600; color: $col1;
+        &:before {
+          content: ''; @include position(absolute, 8px null null -15px); width: 6px; height: 6px; background-color: $col5; border-radius: 50%;
+        }
+      }
+    }
+    & strong, & b {
+      font-weight: 700;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 40px 0;
+  }
+}
+.bxAboutCont {
+  width: 100%; height: auto; padding: 25px 0; margin: 0 0 20px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.20); @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none; max-width: 450px;
+  }
+  @media all and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.bxAboutContFull {
+  width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.20); @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none;
+  }
+  @media all and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.circleAbout {
+  width: 100%; height: auto; padding: 0; margin: 30px 0 0; position: relative; @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none; max-width: 555px;
   }
 }
